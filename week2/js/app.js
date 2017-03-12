@@ -17,6 +17,10 @@ var shoppingList = [
   {
     name: "Chocolate",
     quantity: "5"
+  },
+  {
+    name: "Cookies",
+    quantity: "5"
   }
 ];
 
