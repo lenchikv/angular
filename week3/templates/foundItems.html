@@ -1,0 +1,11 @@
+<div class="form-group founded-group">
+	{{ nrwLocal.myTitle }}
+
+	<ul>	
+        <li ng-repeat="item in nrwLocal.found">
+       		<b><i>{{ item.name }} ({{ item.short_name }})</i></b> - {{ item.description }} <button ng-click="nrwLocal.onRemove({index: $index});">Remove</button>
+       </li>
+    </ul>
+    </div>
+</div>
+
