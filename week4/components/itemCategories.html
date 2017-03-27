@@ -1,0 +1,9 @@
+<div class="bread"><a ui-sref="home">Home</a> >> <a ui-sref="categories">Categories</a> >> <a ui-sref="items({categoryShortName: $ctrl.items.category.short_name})">{{ $ctrl.items.category.name}}</a></div>
+
+<h2 ui-sref="items({categoryShortName: $ctrl.items.category.short_name})" class="categories">{{ $ctrl.items.category.name}}</h2>
+<ol>
+  <li ng-repeat="item in $ctrl.items.menu_items">
+    {{ item.name }} - {{ item.description }}
+  </li>
+</ol>
+
