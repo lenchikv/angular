@@ -79,6 +79,15 @@
 	      Email: {{ reg.user.email}} <br>
 	      Phone: {{ reg.user.phone }}  <br>
 	      Favorite: {{ reg.user.favorite }}
-	    </div>
+	      
+	      <div ng-if="reg.fav">
+		      <h3>Your favorite: {{reg.fav.name}}</h3>
+		       <div>
+			     <img class="img-responsive" width="250" height="150" ng-src="{{reg.ApiPath}}/images/{{reg.fav.short_name}}.jpg" alt="{{reg.fav.name}}">
+			     <p class="menu-item-details">{{reg.fav.short_name}} - {{reg.fav.description}}</p>
+			  </div>
+	  	  </div>	
+
+	  </div>
 	</div>
 </div>

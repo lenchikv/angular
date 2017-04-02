@@ -20,7 +20,7 @@ function UserService($http, ApiPath, $window) {
       method: "GET",
       url: (ApiPath + '/menu_items/' + fav.trim() +'.json')
     }).then(function (response) {
-    	return response.data.short_name;
+    	return response.data;
     })
     .catch(function (error) {
       console.log("Wrong data inserted");
