@@ -55,7 +55,7 @@
 	          <br>
 
 	        <input type="text" name="favorite" placeholder="Favorite dish (short_name)" class="form-group"
-	          ng-model="reg.user.favorite" ng-blur="reg.checkFavorite(reg.user.favorite)">
+	          ng-model="reg.user.favorite" ng-blur="reg.checkSubmit(reg.user.favorite)">
 	          <div ng-if="signForm.favorite.$touched && !reg.favoriteValid">
 	            {{reg.favMessage}}
 	          </div>
@@ -63,7 +63,7 @@
 	  
 	        <button
 	          ng-disabled="signForm.$invalid || !reg.favoriteValid"
-	          ng-click="reg.submit()">Submit</button>
+	          ng-click="reg.checkSubmit(reg.user.favorite,1)">Submit</button>
 	         <div ng-if="signForm.$touched && signForm.$invalid || !reg.favoriteValid">
 	            Form filled out with mistakes!
 	          </div>  	

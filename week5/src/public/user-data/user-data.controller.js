@@ -18,21 +18,22 @@ function SignUpController(UserService, $state) {
   	else reg.user = user;
   }
   
- reg.checkFavorite = function(favorite) {
-  	reg.favoriteValid = false;
-  	reg.favMessage = "Checking...";
-  	UserService.checkFavorite(favorite).then( function(result) {
-  			if (result == favorite) reg.favoriteValid = true;
-  			else reg.favoriteValid = false;
-  			reg.favMessage = "Favorite dish is invalid.";
-  	})
+ reg.checkSubmit = function(favorite, save) {
+    reg.favoriteValid = false;
+    reg.favMessage = "Checking...";
+    UserService.checkFavorite(favorite).then( function(result) {
+        if (result == favorite) reg.favoriteValid = true;
+        else reg.favoriteValid = false;
+        reg.favMessage = "Favorite dish is invalid.";
+
+        if (reg.favoriteValid && save == 1) {
+          UserService.setUser(reg.user);  
+          reg.saved = true;
+        }    
+    })
   }
 
-   
-  reg.submit = function () {
-    UserService.setUser(reg.user);	
-    reg.saved = true;
-  };
 }
+
 
 })();
