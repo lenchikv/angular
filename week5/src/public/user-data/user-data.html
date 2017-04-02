@@ -62,9 +62,9 @@
 	          <br>
 	  
 	        <button
-	          ng-disabled="signForm.$invalid"
+	          ng-disabled="signForm.$invalid || !reg.favoriteValid"
 	          ng-click="reg.submit()">Submit</button>
-	         <div ng-if="signForm.$touched && signForm.$invalid">
+	         <div ng-if="signForm.$touched && signForm.$invalid || !reg.favoriteValid">
 	            Form filled out with mistakes!
 	          </div>  	
 	      </form>
