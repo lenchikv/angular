@@ -47,11 +47,10 @@ ul.categories li {
     display: inline;
     border: 1px solid green;
     color: green;
-    padding: 10px 20px;
+    padding: 20px;
     margin: 3px;
-    width: 160px;
+    width: 180px;
     float: left;
-    font-size: 10px;
 }
 ol {
 	text-align: left;
@@ -66,11 +65,13 @@ ul.categories li:hover a {
  color: white;
  
 }
-.details {
-	margin: 20px; 
-	padding: 20px; 
-	clear: both;
-}	
+
 .activeTab {
 	font-weight: bold;
+}
+
+.menu-items {
+	float: left;
+    margin: 30px;
+    width: 100%;
 }

@@ -1,12 +1,10 @@
 <div class="bread"><a ui-sref="home">Home</a> >> <a ui-sref="categories">Categories</a></div>
 <h2 ui-sref="categories" class="categories">List of categories</h2>
-<div >
 <ul class="categories">
   <li ng-repeat="category in $ctrl.categories">
     <a ui-sref="categories.items({categoryShortName: category.short_name})" ui-sref-active="activeTab"> {{ category.name }} </a>
   </li>
 </ul>
-</div>
-<div class="details">
+<div class="menu-items">
 	<ui-view></ui-view>
 </div>

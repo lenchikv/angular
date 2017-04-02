@@ -1,0 +1,84 @@
+   <div class="container">
+	
+	<div class="alert alert-success fade in" ng-if="reg.signup">
+    	<strong>Not Signed Up Yet. <a ui-sref="public.sign-up" class="sign">Sign up Now!</a></strong>
+	</div> 
+	<div class="alert alert-success fade in" ng-if="reg.saved">
+    	<strong>Your information has been saved.</strong>
+	</div>
+	<div ng-if="!reg.signup">		
+	<div class="col-md-6 col-sm-12">	
+	  <h2>Your information</h2>
+	    <fieldset>
+	       <form name='signForm' novalidate>
+	        <input type="text" name="firstname" placeholder="Enter first name" class="form-group"
+	          ng-model="reg.user.firstname"
+	          required
+	          minlength="2"
+	          ng-maxlength="15">
+	          <div
+	            ng-if="(signForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+	            First name must be at least 2 characters long
+	          </div>
+	          <div ng-if="signForm.firstname.$error.maxlength && signForm.firstname.$touched">
+	            Username must not be longer than 10 characters
+	          </div>
+	          <br>
+
+	        <input type="text" name="lastname" placeholder="Enter last name" class="form-group"
+	          ng-model="reg.user.lastname"
+	          required
+	          minlength="2"
+	          ng-maxlength="15">
+	          <div
+	            ng-if="(signForm.lastname.$error.minlength || signForm.lastname.$error.required) && signForm.lastname.$touched">
+	            Last name must be at least 2 characters long
+	          </div>
+	          <div ng-if="signForm.lastname.$error.maxlength && signForm.lastname.$touched">
+	            Last name must not be longer than 10 characters
+	          </div>
+	          <br>  
+	        <input type="email" name="email" placeholder="Email" class="form-group"
+	          ng-model="reg.user.email"
+	          required>
+	          <div ng-if="signForm.email.$invalid && signForm.email.$touched">
+	            Must be a valid email address: handle@domain format
+	          </div>
+	          <br>
+
+	        <input type="text" name="phone" placeholder="Phone ###-###-####" class="form-group"
+	          ng-model="reg.user.phone"
+	          pattern="(\d{3})-(\d{3})-(\d{4})">
+	          <div ng-if="signForm.phone.$invalid && signForm.phone.$touched">
+	            Phone must be in the format ###-###-####.
+	          </div>
+	          <br>
+
+	        <input type="text" name="favorite" placeholder="Favorite dish (short_name)" class="form-group"
+	          ng-model="reg.user.favorite" ng-blur="reg.checkFavorite(reg.user.favorite)">
+	          <div ng-if="signForm.favorite.$touched && !reg.favoriteValid">
+	            {{reg.favMessage}}
+	          </div>
+	          <br>
+	  
+	        <button
+	          ng-disabled="signForm.$invalid"
+	          ng-click="reg.submit()">Submit</button>
+	         <div ng-if="signForm.$touched && signForm.$invalid">
+	            Form filled out with mistakes!
+	          </div>  	
+	      </form>
+	    </fieldset>
+	   </div>
+	   <div class="col-md-6 col-sm-12">
+
+	  <div ng-if="!signForm.$pristine || reg.user">
+	   <h2>You entered</h2>	
+	      First name: {{ reg.user.firstname}} <br>
+	      Last name: {{ reg.user.lastname}} <br>
+	      Email: {{ reg.user.email}} <br>
+	      Phone: {{ reg.user.phone }}  <br>
+	      Favorite: {{ reg.user.favorite }}
+	    </div>
+	</div>
+</div>
